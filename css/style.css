@@ -1,0 +1,261 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-work: hsl(15, 100%, 70%);
+    --color-play: hsl(195, 74%, 62%);
+    --color-study: hsl(348, 100%, 68%);
+    --color-exercise: hsl(145, 58%, 55%);
+    --color-social: hsl(264, 64%, 52%);
+    --color-selfcard: hsl(43, 84%, 65%);
+
+    --color-neutral-1: hsl(226, 43%, 10%);
+    --color-neutral-2: hsl(235, 46%, 20%);
+    --color-neutral-3: hsl(235, 45%, 61%);
+    --color-neutral-4: hsl(236, 100%, 87%);
+
+    --ff-primary: "Rubik", sans-serif;
+
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-neutral-4);
+}
+
+body {
+    background-color: var(--color-neutral-1);
+    font-family: var(--ff-primary);
+    font-size: 1.8rem;
+}
+
+.container {
+    margin: 0 auto;
+    width: 70%;
+    min-width: 280px;
+    max-width: 300px;
+    padding: 4rem 0;
+}
+
+.card {
+    width: 100%;
+    position:relative;
+    top: 0;
+    left:0;
+    min-height: 120px;
+    margin: 4rem 0;
+    border-radius: 10px;
+}
+
+.card__front {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card__front__user {
+    color: var(--color-neutral-4);
+    font-size: .8rem;
+    margin-left: 1rem;
+}
+
+.card__front__user  h2 {
+    font-size: 1.3rem;
+    margin: .3rem 0;
+    font-weight: 300;
+}
+
+.card__front--img {
+    max-width: 80px;
+}
+
+.card__back {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    font-size: 1rem;
+    background: var(--color-neutral-2);
+    color: var(--color-neutral-3);
+    padding-bottom: 1.6rem;
+}
+
+.card__front, .card__back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+}
+
+/* card 1 */
+.card:first-child
+{
+
+}
+
+.card:first-child .card__front {
+    transform: translateY(-60px);
+    z-index: 1;
+}
+
+.card:first-child .card__front {
+    background: var(--color-neutral-3);
+    padding: 1rem;
+}
+
+
+/* other card */
+.card:not(:first-child) .card__front 
+{
+    transform: translateY(-30px);
+    overflow: hidden;
+}
+
+.card:not(:first-child) .card__front img
+{
+    position: absolute;
+    top: -15px;
+    right: 0;
+}
+
+.card:not(:first-child) .card__back .left {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1.8rem;
+    max-width: 40px;
+    color: #fff;
+    font-weight: 100;
+} 
+
+.card:not(:first-child) .card__back .right {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: right;
+    max-width: 200px;
+}
+
+.right a {
+    font-size: 2rem;
+    text-decoration: none;
+    color: var(--color-neutral-4);
+}
+
+.subject {
+    font-weight: 400;
+    font-size: .8rem;
+}
+
+
+.card:nth-child(2) .card__front {
+    background: var(--color-work);
+}
+.card:nth-child(3) .card__front {
+    background: var(--color-play);
+}
+.card:nth-child(4) .card__front {
+    background: var(--color-study);
+}
+
+.card:nth-child(5) .card__front {
+    background: var(--color-exercise);
+}
+
+.card:nth-child(6) .card__front {
+    background: var(--color-social);
+}
+
+.card:nth-child(7) .card__front {
+    background: var(--color-selfcard);
+}
+
+@media (min-width: 880px) {
+    body {
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(200px, 1fr));
+        grid-template-rows: 280px 280px;
+        grid-gap: .8rem;
+
+        width: 90%;
+        min-width: 400px;
+        max-width: 800px;
+        min-height: 50vh;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .card:first-child {
+        grid-row: span 2;
+        max-height: 310px;
+        margin-top: 8rem;
+    }
+
+    .card:first-child .card__front {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .card:first-child .card__back {
+        flex-direction: column;
+        max-height: 60%;
+        justify-content: flex-end;
+        align-items: flex-start;
+        top: 210px;
+        padding: 2rem;
+
+    }
+
+    .card__back a {
+        margin: .5rem 0;
+    }
+
+    .card__front {
+        padding: 2rem;
+    }
+    .card__front__user h2 {
+        font-size: 2rem;
+    }
+
+    .card__back {
+        flex-direction: column;
+        overflow: hidden;
+        align-items: flex-start;
+        padding:6rem 30px;
+    }
+
+    .left {
+        font-size: 1rem;
+    }
+
+    .right  {
+        margin: 0;
+        padding: 0;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .right a {
+        font-size: .9rem;
+    }
+
+    .subject {
+        font-size: .8rem;
+        margin-top: 2em;
+    }
+
+    .time {
+        font-size: 2rem;
+        margin: 1rem 0;
+    }
+}
